@@ -1,7 +1,6 @@
-font pango:monospace 8.000000
 floating_modifier Mod1
 default_border pixel 3
-default_floating_border normal 2
+default_floating_border pixel 3
 hide_edge_borders none
 focus_wrapping no
 focus_follows_mouse yes
@@ -9,6 +8,8 @@ focus_on_window_activation smart
 mouse_warping output
 workspace_layout default
 workspace_auto_back_and_forth no
+# Theme
+font pango:monospace 8.000000
 client.focused #182030 #5c4a94 #856cd9 #856cd9 #856cd9
 client.focused_inactive #5c4a94 #5c4a94 #5c4a94 #5c4a94 #5c4a94
 client.unfocused #5c4a94 #5c4a94 #5c4a94 #5c4a94 #5c4a94
@@ -16,53 +17,71 @@ client.urgent #2f343a #900000 #ffffff #900000 #900000
 client.placeholder #000000 #0c0c0c #ffffff #000000 #0c0c0c
 client.background #856cd9
 
-bindsym Ctrl+XF86AudioNext exec playerctl -p firefox next
-bindsym Ctrl+XF86AudioPause exec playerctl -p firefox play-pause
-bindsym Ctrl+XF86AudioPlay exec playerctl -p firefox play-pause
-bindsym Ctrl+XF86AudioPrev exec playerctl -p firefox previous
-bindsym Mod1+Ctrl+Escape exec reboot
-bindsym Mod1+Down focus down
-bindsym Mod1+Escape exit
-bindsym Mod1+Left focus left
-bindsym Mod1+Return exec kitty
-bindsym Mod1+Right focus right
-bindsym Mod1+Shift+Down move down
-bindsym Mod1+Shift+Escape exec shutdown -h now
-bindsym Mod1+Shift+Left move left
-bindsym Mod1+Shift+Return exec rofi -show combi
-bindsym Mod1+Shift+Right move right
-bindsym Mod1+Shift+Up move up
-bindsym Mod1+Shift+c reload
-bindsym Mod1+Shift+f fullscreen toggle
-bindsym Mod1+Shift+l exec --no-startup-id swaylock -i /home/mara/Documents/Syncthing/Desktop-Backgrounds/louis-coyle-inspired-lakeside.png
-bindsym Mod1+Shift+q kill
-bindsym Mod1+Shift+r restart
-bindsym Mod1+Shift+s move scratchpad
-bindsym Mod1+Shift+space floating toggle
-bindsym Mod1+Shift+w scratchpad show
-bindsym Mod1+Up focus up
-bindsym Mod1+a exec nemo
-bindsym Mod1+d exec rofi -show drun
-bindsym Mod1+f exec rofi -show filebrowser
-bindsym Mod1+h split h
-bindsym Mod1+r mode resize
-bindsym Mod1+s exec rofi -show ssh
-bindsym Mod1+space exec rofi -show combi
-bindsym Mod1+v split v
-bindsym Mod4+Shift+s exec gscreenshot -cso
-bindsym Mod4+l exec --no-startup-id swaylock -i /home/mara/Documents/Syncthing/Desktop-Backgrounds/louis-coyle-inspired-lakeside.png
+# Buttons
+set $mod Mod1
+set $sup Mod4
+
+# Computer Control
+bindsym $mod+Shift+Escape exec shutdown -h now
+bindsym $mod+Ctrl+Escape exec reboot
+bindsym $mod+Escape exit
+# Movement
+bindsym $mod+Down focus down
+bindsym $mod+Left focus left
+bindsym $mod+Right focus right
+bindsym $mod+Up focus up
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+f fullscreen toggle
+bindsym $mod+Shift+space floating toggle
+# Sway Control
+bindsym $mod+Shift+q kill
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+# Shadow Dimension
+bindsym $mod+Shift+s move scratchpad
+bindsym $mod+Shift+w scratchpad show
+# Programs
+bindsym $mod+a exec nemo
+bindsym $mod+Return exec kitty
+# Rofi
+bindsym $mod+d exec rofi -show drun
+bindsym $mod+f exec rofi -show filebrowser
+bindsym $mod+r mode resize
+bindsym $mod+s exec rofi -show ssh
+bindsym $mod+space exec rofi -show combi
+bindsym $mod+Shift+Return exec rofi -show combi
+# Wallpaper
+bindsym $mod+Shift+b exec wpaperctl next
+# Splitting
+bindsym $mod+v split v
+bindsym $mod+h split h
+# Screenshot
+bindsym $sup+Shift+s exec gscreenshot -cso
 bindsym Shift+Print exec gscreenshot -cso
+# Screenlock
+bindsym $sup+l exec --no-startup-id swaylock -i /home/mara/Documents/Syncthing/Desktop-Backgrounds/louis-coyle-inspired-lakeside.png
+bindsym $mod+Shift+l exec --no-startup-id swaylock -i /home/mara/Documents/Syncthing/Desktop-Backgrounds/louis-coyle-inspired-lakeside.png
+# Audio Control
 bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -ud 5
-bindsym XF86AudioMicMute exec --no-startup-id "amixer -q sset Capture toggle; pkill -SIGRTMIN+10 waybar"
+bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -ui 5
 bindsym XF86AudioMute exec --no-startup-id pamixer -t
+bindsym XF86AudioMicMute exec --no-startup-id "amixer -q sset Capture toggle; pkill -SIGRTMIN+10 waybar"
 bindsym XF86AudioNext exec "playerctl -p quodlibet,spotify next"
 bindsym XF86AudioPause exec "playerctl -p quodlibet,spotify play-pause"
 bindsym XF86AudioPlay exec "playerctl -p quodlibet,spotify play-pause"
 bindsym XF86AudioPrev exec "playerctl -p quodlibet,spotify previous"
-bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -ui 5
+bindsym Ctrl+XF86AudioNext exec playerctl -p firefox next
+bindsym Ctrl+XF86AudioPause exec playerctl -p firefox play-pause
+bindsym Ctrl+XF86AudioPlay exec playerctl -p firefox play-pause
+bindsym Ctrl+XF86AudioPrev exec playerctl -p firefox previous
+# Brightness Control
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%--autostart
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 
+# Input Control
 input "*" {
   accel_profile flat
   pointer_accel -0.1
@@ -70,6 +89,7 @@ input "*" {
   xkb_numlock enabled
 }
 
+# Monitors
 output "DP-1" {
   mode 1920x1080
   pos 3840 0
@@ -91,10 +111,11 @@ output "HDMI-A-1" {
   scale 1
 }
 
+# Resize
 mode "resize" {
   bindsym Down resize shrink height 10 px or 10 ppt
   bindsym Escape mode default
-  bindsym Mod1+r mode default
+  bindsym $mod+r mode default
   bindsym Return mode default
   bindsym Shift+Down resize shrink width 10 px or 10 ppt
   bindsym Shift+Up resize grow width 10 px or 10 ppt
