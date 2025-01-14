@@ -1,0 +1,73 @@
+/*
+* Variant: Rosé Pine Moon
+* Maintainer: DankChoir
+*/
+
+@define-color base            #232136;
+@define-color surface         #2a273f;
+@define-color overlay         #393552;
+
+@define-color muted           #6e6a86;
+@define-color subtle          #908caa;
+@define-color text            #e0def4;
+
+@define-color love            #eb6f92;
+@define-color gold            #f6c177;
+@define-color rose            #ea9a97;
+@define-color pine            #3e8fb0;
+@define-color foam            #9ccfd8;
+@define-color iris            #c4a7e7;
+
+@define-color highlightLow    #2a283e;
+@define-color highlightMed    #44415a;
+@define-color highlightHigh   #56526e;
+
+* {
+  font-family: Hack Nerd Font;
+  font-size: 14px;
+  min-height: 0;
+}
+
+#tray menu, #waybar {
+  background: linear-gradient(0deg, alpha(@base, 0) 0%,alpha(@base, 0.5) 100%);
+  color: @text;
+  /*border-bottom: 3px solid shade(@iris, 0.5);*/
+}
+
+#tray menu,
+.modules-left,
+.modules-right,
+#mpris {
+  background-color: @surface;
+  padding: 0.25rem 0.75rem;
+  margin-top: 5px;
+  margin-bottom: 0;
+  border: 2px solid alpha(@pine, 0.75);
+  color: @text;
+}
+
+.modules-left {
+  border-radius: 0 1rem 1rem 0;
+  border-left: none;
+}
+
+#tray menu, #mpris {
+  border-radius: 1rem 1rem 1rem 1rem;
+}
+
+#tray menu menuitem {
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+.modules-right {
+  border-radius: 1rem 0px 0px 1rem;
+  border-right: none;
+}
+
+#battery.charging {
+  color: @pine;
+}
+
+#battery.warning:not(.charging) {
+  color: @rose;
+}

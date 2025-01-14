@@ -1,0 +1,129 @@
+font pango:monospace 8.000000
+floating_modifier Mod1
+default_border pixel 3
+default_floating_border normal 2
+hide_edge_borders none
+focus_wrapping no
+focus_follows_mouse yes
+focus_on_window_activation smart
+mouse_warping output
+workspace_layout default
+workspace_auto_back_and_forth no
+client.focused #182030 #5c4a94 #856cd9 #856cd9 #856cd9
+client.focused_inactive #5c4a94 #5c4a94 #5c4a94 #5c4a94 #5c4a94
+client.unfocused #5c4a94 #5c4a94 #5c4a94 #5c4a94 #5c4a94
+client.urgent #2f343a #900000 #ffffff #900000 #900000
+client.placeholder #000000 #0c0c0c #ffffff #000000 #0c0c0c
+client.background #856cd9
+
+bindsym Ctrl+XF86AudioNext exec playerctl -p firefox next
+bindsym Ctrl+XF86AudioPause exec playerctl -p firefox play-pause
+bindsym Ctrl+XF86AudioPlay exec playerctl -p firefox play-pause
+bindsym Ctrl+XF86AudioPrev exec playerctl -p firefox previous
+bindsym Mod1+Ctrl+Escape exec reboot
+bindsym Mod1+Down focus down
+bindsym Mod1+Escape exit
+bindsym Mod1+Left focus left
+bindsym Mod1+Return exec kitty
+bindsym Mod1+Right focus right
+bindsym Mod1+Shift+Down move down
+bindsym Mod1+Shift+Escape exec shutdown -h now
+bindsym Mod1+Shift+Left move left
+bindsym Mod1+Shift+Return exec rofi -show combi
+bindsym Mod1+Shift+Right move right
+bindsym Mod1+Shift+Up move up
+bindsym Mod1+Shift+c reload
+bindsym Mod1+Shift+f fullscreen toggle
+bindsym Mod1+Shift+l exec --no-startup-id swaylock -i /home/mara/Documents/Syncthing/Desktop-Backgrounds/louis-coyle-inspired-lakeside.png
+bindsym Mod1+Shift+q kill
+bindsym Mod1+Shift+r restart
+bindsym Mod1+Shift+s move scratchpad
+bindsym Mod1+Shift+space floating toggle
+bindsym Mod1+Shift+w scratchpad show
+bindsym Mod1+Up focus up
+bindsym Mod1+a exec nemo
+bindsym Mod1+d exec rofi -show drun
+bindsym Mod1+f exec rofi -show filebrowser
+bindsym Mod1+h split h
+bindsym Mod1+r mode resize
+bindsym Mod1+s exec rofi -show ssh
+bindsym Mod1+space exec rofi -show combi
+bindsym Mod1+v split v
+bindsym Mod4+Shift+s exec gscreenshot -cso
+bindsym Mod4+l exec --no-startup-id swaylock -i /home/mara/Documents/Syncthing/Desktop-Backgrounds/louis-coyle-inspired-lakeside.png
+bindsym Shift+Print exec gscreenshot -cso
+bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -ud 5
+bindsym XF86AudioMicMute exec --no-startup-id "amixer -q sset Capture toggle; pkill -SIGRTMIN+10 waybar"
+bindsym XF86AudioMute exec --no-startup-id pamixer -t
+bindsym XF86AudioNext exec "playerctl -p quodlibet,spotify next"
+bindsym XF86AudioPause exec "playerctl -p quodlibet,spotify play-pause"
+bindsym XF86AudioPlay exec "playerctl -p quodlibet,spotify play-pause"
+bindsym XF86AudioPrev exec "playerctl -p quodlibet,spotify previous"
+bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -ui 5
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%--autostart
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+
+input "*" {
+  accel_profile flat
+  pointer_accel -0.1
+  xkb_layout de
+  xkb_numlock enabled
+}
+
+output "DP-1" {
+  mode 1920x1080
+  pos 3840 0
+}
+
+output "DP-2" {
+  mode 1920x1080
+  pos 0 0
+}
+
+output "DP-3" {
+  mode 1920x1080
+  pos 1920 0
+}
+
+output "HDMI-A-1" {
+  mode 1920x1080
+  pos 1920 0
+  scale 1
+}
+
+mode "resize" {
+  bindsym Down resize shrink height 10 px or 10 ppt
+  bindsym Escape mode default
+  bindsym Mod1+r mode default
+  bindsym Return mode default
+  bindsym Shift+Down resize shrink width 10 px or 10 ppt
+  bindsym Shift+Up resize grow width 10 px or 10 ppt
+  bindsym Up resize grow height 10 px or 10 ppt
+}
+
+#bar {
+#  font pango:Hack Nerd Font 10.000000
+#  position top
+#  status_command i3status-rs ~/.config/i3status-rust/config-top.toml
+#  swaybar_command swaybar
+#  workspace_buttons no
+#  colors {
+#    background #182030
+#    statusline #c5ccd4
+#    separator #856cd9
+#  }
+#}
+
+gaps inner 5
+gaps outer 0
+
+# Austostart
+exec xset -dpms
+exec xidlehook --not-when-fullscreen --not-when-audio --timer 300 'brightnessctl set 50%' 'brightnessctl set 100%' --timer 60 'brightnessctl set 100%; swaylock -i /home/mara/Documents/Syncthing/Desktop-Backgrounds/louis-coyle-inspired-lakeside.png' '' --timer 60 'brightnessctl set 50%' 'brightnessctl set 100%'
+exec wpaperd -d
+exec /usr/lib/xfce-polkit/xfce-polkit
+exec syncthing --no-browser
+exec dunst
+exec waybar
+exec blueman-applet
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway

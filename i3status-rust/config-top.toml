@@ -1,0 +1,78 @@
+[[block]]
+block = "music"
+format = "{ $combo.str |}"
+player = "spotify"
+
+[[block]]
+block = "net"
+format = " $icon $speed_down.eng(prefix:K,w:3) $speed_up.eng(prefix:K,w:3) $ip {$signal_strength |}"
+interval = 1
+
+[[block]]
+block = "nvidia_gpu"
+format = "{ $icon $utilization $memory $temperature |}"
+interval = 1
+
+[[block]]
+block = "memory"
+interval = 1
+
+[[block]]
+block = "cpu"
+interval = 1
+
+[[block]]
+block = "temperature"
+chip = "*-isa-*"
+format = " $icon $average/$max "
+interval = 1
+
+[[block]]
+alert = 10.0
+block = "disk_space"
+info_type = "available"
+interval = 60
+path = "/"
+warning = 20.0
+
+[[block]]
+block = "sound"
+format = " $icon {$volume |}"
+
+[[block]]
+block = "sound"
+device_kind = "source"
+format = " $icon {$volume |}"
+
+[[block]]
+block = "backlight"
+missing_format = ""
+
+[[block]]
+block = "battery"
+interval = 10
+missing_format = ""
+
+[[block]]
+block = "time"
+format = " $timestamp.datetime(f:'%Y-%m-%d %R') "
+interval = 1
+
+[icons]
+icons = "none"
+
+[theme]
+theme = "plain"
+[theme.overrides]
+critical_bg = "#182030"
+critical_fg = "#dd3d7d"
+good_bg = "#182030"
+good_fg = "#edf5ff"
+idle_bg = "#182030"
+idle_fg = "#edf5ff"
+info_bg = "#182030"
+info_fg = "#edf5ff"
+separator_bg = "#182030"
+separator_fg = "#856cd9"
+warning_bg = "#182030"
+warning_fg = "#70b6e5"

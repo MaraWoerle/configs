@@ -1,0 +1,116 @@
+{
+  "modules-left": 
+  [
+    "clock",
+    "battery",
+    "backlight",
+    "bluetooth",
+    "network",
+  ],
+  "modules-center":
+  [
+    "mpris",
+  ],
+  "modules-right":
+  [
+    "custom/gpu",
+    "memory",
+    "cpu",
+    "temperature",
+    "disk",
+    "pulseaudio",
+    "custom/mic",
+    "tray",
+  ],
+
+  "clock":
+  {
+    "format": "{:%Y-%m-%d %H:%M} | ",
+    "tooltip": false,
+  },
+  "bluetooth":
+  {
+    "format": "",
+    "format-on": "",
+    "format-connected-battery": "{device_alias}: {device_battery_percentage} | ",
+    "format-off": "",
+    "format-disabled": "",
+    "tooltip": false,
+  },
+  "network":
+  {
+    "format-ethernet": "{ifname} {ipaddr} {bandwidthUpBytes} {bandwidthDownBytes}",
+    "format-wifi": "{ifname} {signalStrength} {ipaddr} {bandwidthUpBytes} {bandwidthDownBytes}",
+    "format-disconnected": "{ifname} down",
+    "interval": 1,
+    "tooltip": false,
+  },
+
+  "mpris":
+  {
+    "format": "{dynamic}",
+    "dynamic-separator": " | ",
+    "dynamic-len": 50,
+    "dynamic-order":
+    [
+      "title",
+      "artist",
+      "album",
+    ],
+    "tooltip": false,
+  },
+
+  "custom/gpu":
+  {
+    "exec": "echo $(echo 'scale=2;' $(nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits) / 1024 | bc)/$(echo 'scale=2;' $(nvidia-smi --query-gpu=memory.total --format=csv,noheader,nounits) / 1024 | bc)GiB $(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits)% $(nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits)°C",
+    "format": "{} | ",
+    "interval": 1,
+    "tooltip": false,
+  },
+  "memory":
+  {
+    "format": "{used}GiB/{total}GiB | ",
+    "tooltip": false,
+    "interval": 1,
+  },
+  "cpu":
+  {
+    "format": "{usage}% {avg_frequency}GHz | ",
+    "tooltip": false,
+    "interval": 1,
+  },
+  "temperature":
+  {
+    "format": "{temperatureC}°C | ",
+    "thermal-zone": 1,
+    "tooltip": false,
+    "interval": 5,
+  },
+  "disk":
+  {
+    "format": "{free} | ",
+    "tooltip": false,
+    "interval": 60,
+  },
+  "pulseaudio":
+  {
+    "format": "{volume}% | ",
+    "tooltip": false,
+  },
+  "custom/mic":
+  {
+    "exec": "amixer sget Capture | awk -F'[][]' '/Mono:/ { print $4 }'",
+    "on-click": "amixer -q sset Capture toggle; pkill -SIGRTMIN+10 waybar",
+    "exec-on-event": false,
+    "interval": "once",
+    "signal": 10,
+    "format": "{} | ",
+    "tooltip": false,
+  },
+  "tray":
+  {
+    "tooltip": false,
+    "spacing": 5,
+  },
+  "reload_style_on_change": true,
+}
