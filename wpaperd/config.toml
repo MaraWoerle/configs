@@ -2,3 +2,5 @@
 duration = "30m"
 mode = "center"
 path = "/home/mara/Documents/Syncthing/Desktop-Backgrounds"
+sorting = "random"
+transition-time = 1000
