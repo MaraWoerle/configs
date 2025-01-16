@@ -138,6 +138,9 @@ mode "resize" {
 gaps inner 5
 gaps outer 0
 
+# window rules
+for_window [app_id="xfce-polkit"] floating enable
+
 # Austostart
 exec xset -dpms
 exec xidlehook --not-when-fullscreen --not-when-audio --timer 300 'brightnessctl set 50%' 'brightnessctl set 100%' --timer 60 'brightnessctl set 100%; swaylock -i /home/mara/Documents/Syncthing/Desktop-Backgrounds/louis-coyle-inspired-lakeside.png' '' --timer 60 'brightnessctl set 50%' 'brightnessctl set 100%'
