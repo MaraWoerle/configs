@@ -6,6 +6,7 @@
     "backlight",
     "bluetooth",
     "network",
+    "sway/mode",
   ],
   "modules-center":
   [
@@ -45,17 +46,21 @@
     "interval": 1,
     "tooltip": false,
   },
+  "sway/mode":
+  {
+    "tooltip": false,
+    "format": " | {}",
+  },
 
   "mpris":
   {
-    "format": "{dynamic}",
+    "format": " | {dynamic} | ",
     "dynamic-separator": " | ",
     "dynamic-len": 50,
     "dynamic-order":
     [
       "title",
       "artist",
-      "album",
     ],
     "tooltip": false,
   },

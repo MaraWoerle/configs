@@ -16,7 +16,7 @@
 @define-color rose            #ea9a97;
 @define-color pine            #3e8fb0;
 @define-color foam            #9ccfd8;
-@define-color iris            #c4a7e7;
+@define-color iris            #856cd9;
 
 @define-color highlightLow    #2a283e;
 @define-color highlightMed    #44415a;
@@ -26,47 +26,59 @@
   font-family: Hack Nerd Font;
   font-size: 14px;
   min-height: 0;
+  border: none;
+  background: none;
+  margin: 0;
+  padding: 0;
 }
 
-#tray menu, #waybar {
-  background: linear-gradient(0deg, alpha(@base, 0) 0%,alpha(@base, 0.5) 100%);
-  color: @text;
-  /*border-bottom: 3px solid shade(@iris, 0.5);*/
-}
-
+#waybar,
 tooltip,
-#tray menu,
-.modules-left,
-.modules-right,
-#mpris {
+#tray menu, 
+#tray menu menuitem {
   background-color: alpha(@surface, 0.85);
-  padding: 0.25rem 0.75rem;
-  margin-top: 5px;
+  padding: 0.5rem 0;
   margin-bottom: 0;
-  border: 2px solid shade(@iris, 0.5);
+  border-bottom: 2px solid shade(@iris, 1);
   color: @text;
   border-radius: 0 0 0 0;
 }
 
-.modules-left {
-  border-radius: 0 2px 2px 0;
-  border-left: none;
+tooltip {
+  border: 2px solid shade(@iris, 1);
 }
 
-#tray menu,
-#mpris {
+#waybar {
+  background: linear-gradient(0deg, alpha(@base, 0.5) 0%,alpha(@base, 0.85) 100%);
+  color: @text;
+}
+
+.modules-right,
+.modules-left,
+.modules-center {
+  margin: 2px;
+  padding-left: 2px;
+  padding-right: 2px;
+  margin-bottom: 6px;
+}
+
+#tray menu {
   border-radius: 2px 2px 2px 2px;
+  border: 2px solid shade(@iris, 0.5);
 }
 
 #tray menu menuitem {
-  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+  border-radius: 0 0 0 0;
+  border-top: none;
+  border-bottom: none;
+  background: none;
   margin: 0 0;
   padding: 0 0;
 }
 
-.modules-right {
-  border-radius: 2px 0 0 2px;
-  border-right: none;
+#tray menu menuitem:hover {
+  color: @text;
+  background: alpha(@iris, 0.2);
 }
 
 #battery.charging {
