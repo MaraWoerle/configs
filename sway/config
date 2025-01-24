@@ -1,5 +1,5 @@
 floating_modifier Mod1
-default_border pixel 3
+default_border pixel 2
 default_floating_border pixel 2
 hide_edge_borders none
 focus_wrapping no
