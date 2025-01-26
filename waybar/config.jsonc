@@ -56,7 +56,7 @@
   {
     "format": " | {dynamic} | ",
     "dynamic-separator": " | ",
-    "dynamic-len": 50,
+    "dynamic-len": 30,
     "dynamic-order":
     [
       "title",
