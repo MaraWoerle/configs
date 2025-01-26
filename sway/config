@@ -89,28 +89,6 @@ input "*" {
   xkb_numlock enabled
 }
 
-# Monitors
-output "DP-1" {
-  mode 1920x1080
-  pos 3840 0
-}
-
-output "DP-2" {
-  mode 1920x1080
-  pos 0 0
-}
-
-output "DP-3" {
-  mode 1920x1080
-  pos 1920 0
-}
-
-output "HDMI-A-1" {
-  mode 1920x1080
-  pos 1920 0
-  scale 1
-}
-
 # Resize
 mode "resize" {
   bindsym Down resize shrink height 10 px or 10 ppt
@@ -150,3 +128,4 @@ exec syncthing --no-browser
 exec dunst
 exec waybar
 exec blueman-applet
+exec nm-applet
