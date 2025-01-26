@@ -28,6 +28,16 @@
     "format": "{:%Y-%m-%d %H:%M} | ",
     "tooltip": false,
   },
+  "battery":
+  {
+    "format": "{capacity}% {time} | ",
+    "tootltip": false,
+  },
+  "backlight":
+  {
+    "format": "{percent}% | ",
+    "tooltip": false,
+  },
   "bluetooth":
   {
     "format": "",
@@ -40,7 +50,7 @@
   "network":
   {
     "format-ethernet": "{ifname} {ipaddr} {bandwidthUpBytes} {bandwidthDownBytes}",
-    "format-wifi": "{ifname} {signalStrength} {ipaddr} {bandwidthUpBytes} {bandwidthDownBytes}",
+    "format-wifi": "{ifname} {signalStrength}% {ipaddr} {bandwidthUpBytes} {bandwidthDownBytes}",
     "format-disconnected": "{ifname} down",
     "interval": 1,
     "tooltip": false,
@@ -55,14 +65,13 @@
     [
       "title",
       "artist",
-      "album",
     ],
     "tooltip": false,
   },
 
   "custom/gpu":
   {
-    "exec": "echo $(echo 'scale=2;' $(nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits) / 1024 | bc)/$(echo 'scale=2;' $(nvidia-smi --query-gpu=memory.total --format=csv,noheader,nounits) / 1024 | bc)GiB $(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits)% $(nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits)°C",
+    "exec": "nvidia-smi -L > /dev/null && echo $(echo 'scale=2;' $(nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits) / 1024 | bc)/$(echo 'scale=2;' $(nvidia-smi --query-gpu=memory.total --format=csv,noheader,nounits) / 1024 | bc)GiB $(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits)% $(nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits)°C",
     "format": "{} | ",
     "interval": 1,
     "tooltip": false,
@@ -82,7 +91,7 @@
   "temperature":
   {
     "format": "{temperatureC}°C | ",
-    "thermal-zone": 1,
+    "thermal-zone": 8,
     "tooltip": false,
     "interval": 5,
   },
