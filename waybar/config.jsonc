@@ -6,6 +6,7 @@
     "backlight",
     "bluetooth",
     "network",
+    "sway/mode",
   ],
   "modules-center":
   [
@@ -42,7 +43,7 @@
   {
     "format": "",
     "format-on": "",
-    "format-connected-battery": "{device_alias}: {device_battery_percentage} | ",
+    "format-connected-battery": "{device_battery_percentage}% | ",
     "format-off": "",
     "format-disabled": "",
     "tooltip": false,
@@ -55,12 +56,17 @@
     "interval": 1,
     "tooltip": false,
   },
+  "sway/mode":
+  {
+    "tooltip": false,
+    "format": " | {}",
+  },
 
   "mpris":
   {
-    "format": "{dynamic}",
+    "format": " | {dynamic} | ",
     "dynamic-separator": " | ",
-    "dynamic-len": 50,
+    "dynamic-len": 30,
     "dynamic-order":
     [
       "title",

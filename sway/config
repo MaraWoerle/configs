@@ -1,6 +1,6 @@
 floating_modifier Mod1
-default_border pixel 3
-default_floating_border pixel 3
+default_border pixel 2
+default_floating_border pixel 2
 hide_edge_borders none
 focus_wrapping no
 focus_follows_mouse yes
@@ -53,6 +53,7 @@ bindsym $mod+r mode resize
 bindsym $mod+s exec rofi -show ssh
 bindsym $mod+space exec rofi -show combi
 bindsym $mod+Shift+Return exec rofi -show combi
+bindsym $mod+Shift+v exec find /dev -maxdepth 1 -iname 'video*' | rofi -dmenu | xargs ffplay
 # Wallpaper
 bindsym $mod+Shift+b exec wpaperctl next
 # Splitting
@@ -88,6 +89,28 @@ input "*" {
   xkb_layout de
   xkb_numlock enabled
 }
+
+# Monitors
+#output "DP-1" {
+#  mode 1920x1080
+#  pos 3840 0
+#}
+
+#output "DP-2" {
+#  mode 1920x1080
+#  pos 0 0
+#}
+
+#output "DP-3" {
+#  mode 1920x1080
+#  pos 1920 0
+#}
+
+#output "HDMI-A-1" {
+#  mode 1920x1080
+#  pos 1920 0
+#  scale 1
+#}
 
 # Resize
 mode "resize" {
@@ -128,4 +151,5 @@ exec syncthing --no-browser
 exec dunst
 exec waybar
 exec blueman-applet
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec nm-applet
