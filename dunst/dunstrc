@@ -10,7 +10,7 @@
 
   padding = 10
   horizontal_padding = 10
-  frame_width = 3
+  frame_width = 2
   gap_size = 3
   font = "Hack Nerd 10"
 
@@ -23,7 +23,7 @@
   foreground = "#e0def4"
 
   icon_position = "off"
-  timeout = 3
+  timeout = 5
 
 [urgency_low]
   background = "#393955"
