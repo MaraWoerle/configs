@@ -153,3 +153,4 @@ exec waybar
 exec blueman-applet
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec nm-applet
+exec openrgb --startminimized
