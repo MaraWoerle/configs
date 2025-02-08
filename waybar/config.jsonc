@@ -44,7 +44,7 @@
     "format": "{status} | ",
     "format-on": "{status}: {num_connections} | ",
     "format-connected": "{status}: {num_connections} | ",
-    "format-connected-battery": "{status}: {num_connections}, {device_battery_percentage}% | ",
+    "format-connected-battery": "{status}: {num_connections} - {device_battery_percentage}% | ",
     "format-off": "",
     "format-disabled": "",
     "tooltip": false,
