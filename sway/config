@@ -78,6 +78,7 @@ bindsym Ctrl+XF86AudioNext exec playerctl -p firefox next
 bindsym Ctrl+XF86AudioPause exec playerctl -p firefox play-pause
 bindsym Ctrl+XF86AudioPlay exec playerctl -p firefox play-pause
 bindsym Ctrl+XF86AudioPrev exec playerctl -p firefox previous
+bindsym F19 exec playerctl stop -a
 # Brightness Control
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%--autostart
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
@@ -154,3 +155,4 @@ exec blueman-applet
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec nm-applet
 exec openrgb --startminimized
+exec autotiling-rs
