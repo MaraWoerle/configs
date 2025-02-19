@@ -89,6 +89,7 @@ input "*" {
   pointer_accel -0.1
   xkb_layout de
   xkb_numlock enabled
+  xkb_file $HOME/.config/xkb/mymap.xkb
 }
 
 # Monitors
