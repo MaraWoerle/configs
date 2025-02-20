@@ -79,6 +79,7 @@ bindsym Ctrl+XF86AudioPause exec playerctl -p firefox play-pause
 bindsym Ctrl+XF86AudioPlay exec playerctl -p firefox play-pause
 bindsym Ctrl+XF86AudioPrev exec playerctl -p firefox previous
 bindsym F19 exec playerctl stop -a
+bindsym F20 exec --no-startup-id "amixer -q sset Capture toggle; pkill -SIGRTMIN+10 waybar"
 # Brightness Control
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%--autostart
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
