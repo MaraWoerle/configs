@@ -150,7 +150,7 @@ exec xset -dpms
 exec xidlehook --not-when-fullscreen --not-when-audio --timer 300 'brightnessctl set 50%' 'brightnessctl set 100%' --timer 60 'brightnessctl set 100%; swaylock -i /home/mara/Documents/Syncthing/Desktop-Backgrounds/louis-coyle-inspired-lakeside.png' '' --timer 60 'brightnessctl set 50%' 'brightnessctl set 100%'
 exec wpaperd -d
 exec /usr/lib/xfce-polkit/xfce-polkit
-exec syncthing --no-browser
+exec syncthing-gtk -m
 exec dunst
 exec waybar
 exec blueman-applet

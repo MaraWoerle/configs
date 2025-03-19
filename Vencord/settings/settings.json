@@ -208,9 +208,6 @@
         "GreetStickerPicker": {
             "enabled": false
         },
-        "HideAttachments": {
-            "enabled": false
-        },
         "iLoveSpam": {
             "enabled": false
         },
@@ -452,7 +449,8 @@
             "enabled": false
         },
         "SpotifyControls": {
-            "enabled": true
+            "enabled": true,
+            "hoverControls": false
         },
         "SpotifyCrack": {
             "enabled": false
@@ -497,7 +495,9 @@
             "enabled": false
         },
         "UserMessagesPronouns": {
-            "enabled": true
+            "enabled": true,
+            "showSelf": true,
+            "pronounsFormat": "LOWERCASE"
         },
         "UserVoiceShow": {
             "enabled": false
@@ -554,6 +554,15 @@
         },
         "SupportHelper": {
             "enabled": true
+        },
+        "HideMedia": {
+            "enabled": false
+        },
+        "IrcColors": {
+            "enabled": false
+        },
+        "BadgeAPI": {
+            "enabled": true
         }
     },
     "notifications": {
@@ -566,6 +575,6 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1737309853623
+        "settingsSyncVersion": 1738938145003
     }
 }
