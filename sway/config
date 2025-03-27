@@ -158,3 +158,4 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 exec nm-applet
 exec openrgb --startminimized -m Off
 exec autotiling-rs
+exec seafile-applet
