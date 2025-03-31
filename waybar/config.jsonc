@@ -21,7 +21,7 @@
     "disk",
     "pulseaudio",
     "custom/mic",
-    "tray",
+    "group/tray",
   ],
 
   "clock":
@@ -120,13 +120,31 @@
     "exec-on-event": false,
     "interval": "once",
     "signal": 10,
-    "format": "{} | ",
+    "format": "{}",
+    "tooltip": false,
+  },
+  "group/tray":
+  {
+    "drawer": {
+      "click-to-reveal": true,
+    },
+    "orientation": "inherit",
+    "modules": [
+      "custom/tray",
+      "tray"
+    ],
+  },
+  "custom/tray":
+  {
+    "format": " | - ",
+    "interval": "once",
     "tooltip": false,
   },
   "tray":
   {
     "tooltip": false,
     "spacing": 5,
+    "show-passive-items": true,
   },
   "reload_style_on_change": true,
 }
