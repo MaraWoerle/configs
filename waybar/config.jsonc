@@ -51,11 +51,16 @@
   },
   "network":
   {
-    "format-ethernet": "{ifname} {ipaddr} {bandwidthUpBytes} {bandwidthDownBytes}",
-    "format-wifi": "{ifname} {signalStrength}% {ipaddr} {bandwidthUpBytes} {bandwidthDownBytes}",
+    "format-ethernet": "{ifname} - {bandwidthUpBytes} {bandwidthDownBytes}",
+    "format-wifi": "{ifname} ({signalStrength}%) - {bandwidthUpBytes} {bandwidthDownBytes}",
     "format-disconnected": "{ifname} down",
+    "tooltip-format": "{ipaddr}/{cidr} - [{gwaddr}]",
+    "tooltip-format-wifi": "{ipaddr}/{cidr} - [{gwaddr}] \n{essid} - {frequency}GHz ({signaldBm}dBm)",
+    "tooltip-format-disconnected": "no connection",
     "interval": 1,
-    "tooltip": false,
+    "tooltip": true,
+    "family": "ipv4",
+    "max-length": "45",
   },
   "sway/mode":
   {
