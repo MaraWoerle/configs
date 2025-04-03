@@ -22,7 +22,7 @@ set $mod Mod1
 set $sup Mod4
 
 # Computer Control
-bindsym $mod+Shift+Escape exec shutdown -h now
+bindsym $mod+Shift+Escape exec systemctl poweroff
 bindsym $mod+Ctrl+Escape exec reboot
 bindsym $mod+Escape exit
 # Movement
@@ -147,7 +147,7 @@ for_window [app_id="xfce-polkit"] floating enable
 
 # Austostart
 exec xset -dpms
-exec xidlehook --not-when-fullscreen --not-when-audio --timer 300 'brightnessctl set 50%' 'brightnessctl set 100%' --timer 60 'brightnessctl set 100%; swaylock -i /home/mara/Documents/Syncthing/Desktop-Backgrounds/louis-coyle-inspired-lakeside.png' '' --timer 60 'brightnessctl set 50%' 'brightnessctl set 100%'
+exec swayidle -w timeout 300 'brightnessctl set 50%' resume 'brightnessctl set 100%' timeout 360 'brightnessctl set 100%; swaylock -i /home/mara/Documents/Syncthing/Desktop-Backgrounds/louis-coyle-inspired-lakeside.png' timeout 420 'brightnessctl set 50%' resume 'brightnessctl set 100%' before-sleep 'brightnessctl set 100%; swaylock -f -i /home/mara/Documents/Syncthing/Desktop-Backgrounds/louis-coyle-inspired-lakeside.png'
 exec wpaperd -d
 exec /usr/lib/xfce-polkit/xfce-polkit
 exec syncthing-gtk -m
