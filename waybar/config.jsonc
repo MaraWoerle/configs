@@ -115,7 +115,7 @@
   },
   "custom/mic":
   {
-    "exec": "amixer sget Capture | awk -F'[][]' '/Mono:/ { print $4 }'",
+    "exec": "(amixer sget Capture | awk -F'[][]' '/Mono:/ { print $4 }'; amixer sget Capture | awk -F'[][]' '/Left:/ { print $4 }')",
     "on-click": "amixer -q sset Capture toggle; pkill -SIGRTMIN+10 waybar",
     "exec-on-event": false,
     "interval": "once",
