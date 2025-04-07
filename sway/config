@@ -25,6 +25,7 @@ set $sup Mod4
 bindsym $mod+Shift+Escape exec systemctl poweroff
 bindsym $mod+Ctrl+Escape exec reboot
 bindsym $mod+Escape exit
+bindsym $sup+Escape exec systemctl suspend
 # Movement
 bindsym $mod+Down focus down
 bindsym $mod+Left focus left
@@ -143,6 +144,7 @@ gaps inner 5
 gaps outer 0
 
 # window rules
+for_window [app_id=".*"] inhibit_idle fullscreen
 for_window [app_id="xfce-polkit"] floating enable
 
 # Austostart
