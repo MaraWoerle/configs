@@ -21,6 +21,9 @@ client.background #856cd9
 set $mod Mod1
 set $sup Mod4
 
+# Commands
+set $lock swaylock --screenshots --clock --indicator --effect-blur 8x4 --effect-vignette 0.75:0.5
+
 # Computer Control
 bindsym $mod+Shift+Escape exec systemctl poweroff
 bindsym $mod+Ctrl+Escape exec reboot
@@ -64,8 +67,8 @@ bindsym $mod+h split h
 bindsym $sup+Shift+s exec gscreenshot -cso
 bindsym Shift+Print exec gscreenshot -cso
 # Screenlock
-bindsym $sup+l exec --no-startup-id swaylock -i /home/mara/Documents/Syncthing/Desktop-Backgrounds/louis-coyle-inspired-lakeside.png
-bindsym $mod+Shift+l exec --no-startup-id swaylock -i /home/mara/Documents/Syncthing/Desktop-Backgrounds/louis-coyle-inspired-lakeside.png
+bindsym $sup+l exec --no-startup-id $lock
+bindsym $mod+Shift+l exec --no-startup-id $lock
 # Audio Control
 bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -ud 5
 bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -ui 5
@@ -149,12 +152,12 @@ for_window [app_id="xfce-polkit"] floating enable
 
 # Austostart
 exec xset -dpms
-exec swayidle -w timeout 300 'brightnessctl set 50%' resume 'brightnessctl set 100%' timeout 360 'brightnessctl set 100%; swaylock -i /home/mara/Documents/Syncthing/Desktop-Backgrounds/louis-coyle-inspired-lakeside.png' timeout 420 'brightnessctl set 50%' resume 'brightnessctl set 100%' before-sleep 'brightnessctl set 100%; swaylock -f -i /home/mara/Documents/Syncthing/Desktop-Backgrounds/louis-coyle-inspired-lakeside.png'
+exec swayidle -w timeout 300 'brightnessctl set 50%' resume 'brightnessctl set 100%' timeout 360 'brightnessctl set 100%; $lock' timeout 420 'brightnessctl set 50%' resume 'brightnessctl set 100%' before-sleep 'brightnessctl set 100%; $lock'
 exec wpaperd -d
 exec /usr/lib/xfce-polkit/xfce-polkit
 exec syncthing-gtk -m
-exec dunst
-exec waybar
+# exec dunst
+# exec waybar
 exec blueman-applet
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec nm-applet
@@ -163,3 +166,5 @@ exec autotiling-rs
 exec seafile-applet
 
 include /etc/sway/config.d/*
+exec "systemctl --user import-environment {,WAYLAND_}DISPLAY SWAYSOCK; systemctl --user start sway-session.target"
+exec swaymsg -t subscribe '["shutdown"]' && systemctl --user stop sway-session.target
