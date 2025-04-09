@@ -23,11 +23,11 @@ caps-lock-key-hl-color=#f6c177
 separator-color=#00000000
 
 # Inside of the indicator
-inside-color=#3e8fb055
-inside-clear-color=#9ccfd855
-inside-caps-lock-color=#f6c17755
-inside-ver-color=#c4a7e755
-inside-wrong-color=#eb6f9255
+inside-color=#22222abb
+inside-clear-color=#22222abb
+inside-caps-lock-color=#22222abb
+inside-ver-color=#22222abb
+inside-wrong-color=#22222abb
 
 # Line between the inside and ring
 line-color=#3e8fb011
