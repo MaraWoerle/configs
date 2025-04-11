@@ -21,6 +21,10 @@ client.background #856cd9
 set $mod Mod1
 set $sup Mod4
 
+# Music Player
+set $prim-music Feishin,quodlibet,spotify
+set $sec-music firefox
+
 # Commands
 set $lock swaylock --screenshots --clock --indicator --effect-blur 8x4 --effect-vignette 0.75:0.5
 
@@ -74,14 +78,14 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -ud 5
 bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -ui 5
 bindsym XF86AudioMute exec --no-startup-id pamixer -t
 bindsym XF86AudioMicMute exec --no-startup-id "amixer -q sset Capture toggle; pkill -SIGRTMIN+10 waybar"
-bindsym XF86AudioNext exec "playerctl -p quodlibet,spotify next"
-bindsym XF86AudioPause exec "playerctl -p quodlibet,spotify play-pause"
-bindsym XF86AudioPlay exec "playerctl -p quodlibet,spotify play-pause"
-bindsym XF86AudioPrev exec "playerctl -p quodlibet,spotify previous"
-bindsym Ctrl+XF86AudioNext exec playerctl -p firefox next
-bindsym Ctrl+XF86AudioPause exec playerctl -p firefox play-pause
-bindsym Ctrl+XF86AudioPlay exec playerctl -p firefox play-pause
-bindsym Ctrl+XF86AudioPrev exec playerctl -p firefox previous
+bindsym XF86AudioNext exec "playerctl -p $prim-music next"
+bindsym XF86AudioPause exec "playerctl -p $prim-music play-pause"
+bindsym XF86AudioPlay exec "playerctl -p $prim-music play-pause"
+bindsym XF86AudioPrev exec "playerctl -p $prim-music previous"
+bindsym Ctrl+XF86AudioNext exec playerctl -p $sec-music next
+bindsym Ctrl+XF86AudioPause exec playerctl -p $sec-music play-pause
+bindsym Ctrl+XF86AudioPlay exec playerctl -p $sec-music play-pause
+bindsym Ctrl+XF86AudioPrev exec playerctl -p $sec-music previous
 bindsym F19 exec playerctl stop -a
 bindsym F20 exec --no-startup-id "amixer -q sset Capture toggle; pkill -SIGRTMIN+10 waybar"
 # Brightness Control
