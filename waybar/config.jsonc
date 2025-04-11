@@ -45,8 +45,9 @@
     "format-on": "{status}: {num_connections} | ",
     "format-connected": "{status}: {num_connections} | ",
     "format-connected-battery": "{status}: {num_connections} - {device_battery_percentage}% | ",
-    "format-off": "",
+    "format-off": "off | ",
     "format-disabled": "",
+    "on-click": "bluetoothctl show | grep 'Powered: no' && bluetoothctl power on || bluetoothctl power off",
     "tooltip": false,
   },
   "network":
