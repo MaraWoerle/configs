@@ -101,28 +101,6 @@ input "*" {
   xkb_file $HOME/.config/xkb/mymap.xkb
 }
 
-# Monitors
-#output "DP-1" {
-#  mode 1920x1080
-#  pos 3840 0
-#}
-
-#output "DP-2" {
-#  mode 1920x1080
-#  pos 0 0
-#}
-
-#output "DP-3" {
-#  mode 1920x1080
-#  pos 1920 0
-#}
-
-#output "HDMI-A-1" {
-#  mode 1920x1080
-#  pos 1920 0
-#  scale 1
-#}
-
 # Resize
 mode "resize" {
   bindsym Down resize shrink height 10 px or 10 ppt
@@ -133,19 +111,6 @@ mode "resize" {
   bindsym Shift+Up resize grow width 10 px or 10 ppt
   bindsym Up resize grow height 10 px or 10 ppt
 }
-
-#bar {
-#  font pango:Hack Nerd Font 10.000000
-#  position top
-#  status_command i3status-rs ~/.config/i3status-rust/config-top.toml
-#  swaybar_command swaybar
-#  workspace_buttons no
-#  colors {
-#    background #182030
-#    statusline #c5ccd4
-#    separator #856cd9
-#  }
-#}
 
 gaps inner 5
 gaps outer 0
@@ -160,7 +125,7 @@ exec swayidle -w timeout 300 'brightnessctl set 50%' resume 'brightnessctl set 1
 exec wpaperd -d
 exec syncthing-gtk -m
 exec blueman-applet
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+# exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec nm-applet
 exec openrgb --startminimized -m Off
 exec autotiling-rs
