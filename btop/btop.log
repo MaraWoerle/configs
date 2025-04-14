@@ -1,6 +1,0 @@
-
-2025/01/08 (21:33:47) | ===> btop++ v.1.4.0
-2025/01/08 (21:33:47) | WARNING: Failed to get disk/partition stats for mount "/mnt/Games" with statvfs error code: 19. Ignoring...
-
-2025/02/21 (17:54:50) | ===> btop++ v.1.4.0
-2025/02/21 (17:54:50) | WARNING: Failed to join _runner thread on exit!

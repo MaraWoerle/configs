@@ -158,10 +158,7 @@ for_window [app_id="xfce-polkit"] floating enable
 exec xset -dpms
 exec swayidle -w timeout 300 'brightnessctl set 50%' resume 'brightnessctl set 100%' timeout 360 'brightnessctl set 100%; $lock' timeout 420 'brightnessctl set 50%' resume 'brightnessctl set 100%' before-sleep 'brightnessctl set 100%; $lock'
 exec wpaperd -d
-exec /usr/lib/xfce-polkit/xfce-polkit
 exec syncthing-gtk -m
-# exec dunst
-# exec waybar
 exec blueman-applet
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec nm-applet
@@ -169,6 +166,4 @@ exec openrgb --startminimized -m Off
 exec autotiling-rs
 exec seafile-applet
 
-include /etc/sway/config.d/*
-exec "systemctl --user import-environment {,WAYLAND_}DISPLAY SWAYSOCK; systemctl --user start sway-session.target"
-exec swaymsg -t subscribe '["shutdown"]' && systemctl --user stop sway-session.target
+exec uwsm finalize
