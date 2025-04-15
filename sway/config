@@ -27,6 +27,7 @@ set $sec-music firefox
 
 # Commands
 set $lock swaylock --screenshots --clock --indicator --effect-blur 8x4 --effect-vignette 0.75:0.5
+set $dim brightnessctl -s s $(($(brightnessctl g) / 2))
 
 # Computer Control
 bindsym $mod+Shift+Escape exec systemctl poweroff
@@ -121,7 +122,7 @@ for_window [app_id="xfce-polkit"] floating enable
 
 # Austostart
 exec xset -dpms
-exec swayidle -w timeout 300 'brightnessctl set 50%' resume 'brightnessctl set 100%' timeout 360 'brightnessctl set 100%; $lock' timeout 420 'brightnessctl set 50%' resume 'brightnessctl set 100%' before-sleep 'brightnessctl set 100%; $lock'
+exec swayidle -w timeout 300 '$dim' resume 'brightnessctl -r' timeout 360 'brightnessctl -r; $lock' timeout 420 '$dim' resume 'brightnessctl -r' before-sleep 'brightnessctl -r; $lock'
 exec wpaperd -d
 exec syncthing-gtk -m
 exec blueman-applet
