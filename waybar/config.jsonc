@@ -32,6 +32,7 @@
   "battery":
   {
     "format": "{capacity}% {time} | ",
+    "format-full": "{capacity}% | ",
     "tootltip": false,
   },
   "backlight":
