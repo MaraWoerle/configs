@@ -138,12 +138,19 @@
     "orientation": "inherit",
     "modules": [
       "custom/tray",
+      "custom/tray-sep",
       "tray"
     ],
   },
   "custom/tray":
   {
     "format": " | - ",
+    "interval": "once",
+    "tooltip": false,
+  },
+  "custom/tray-sep":
+  {
+    "format": "| ",
     "interval": "once",
     "tooltip": false,
   },
